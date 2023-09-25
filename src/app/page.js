@@ -1,12 +1,16 @@
 "use client"
 // pages/form.js
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'
+
 
 export default function Form() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const router = useRouter()
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,12 +28,15 @@ export default function Form() {
         body: formData,
       });
 
-      if (response.status === 201) {
+      if (response.status === 200) {
+        
+        
         const data = await response.json();
         setMessage(data.message);
         setName('');
         setEmail('');
         setPhone('');
+        router.push('/game')
       } else if (response.status === 200) {
         const data = await response.json();
         setMessage(data.message);
