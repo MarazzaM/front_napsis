@@ -19,7 +19,7 @@ export async function POST(request) {
 
     if (existingUser) {
       // A User with the same email already exists
-      return NextResponse.json({ message: 'User with this email already exists', data: existingUser });
+      return NextResponse.json({ message: 'Ya has participado, buena suerte!', data: existingUser });
     }
 
     // If no existing User, create a new one
@@ -31,9 +31,9 @@ export async function POST(request) {
       },
     });
 
-    return NextResponse.json({ message: 'User data saved successfully', data: createdUser });
+    return NextResponse.json({ message: 'Ha ingresado correctamente', data: createdUser });
   } catch (error) {
     console.error('Error saving User data:', error);
-    return NextResponse.json({ message: 'Error saving User data' }, { status: 500 });
+    return NextResponse.json({ message: 'Ha ocurrido un error' }, { status: 500 });
   }
 }

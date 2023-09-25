@@ -6,13 +6,13 @@ body{
   background:
     linear-gradient(
     130deg ,
-    rgba(171, 17, 51, 1) 30%,
+    rgb(28, 22, 155) 30%,
       rgba(255, 51, 102, 0.75)  
     ),
     linear-gradient(
     200deg ,
-    #AB1133 50%,
-      #FF3366 50%
+    #083467 50%,
+    #34dbc5 50%
     )
     ;
 }

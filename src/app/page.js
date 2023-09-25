@@ -2,7 +2,7 @@
 // pages/form.js
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
-
+import Image from 'next/image';
 
 export default function Form() {
   const [name, setName] = useState('');
@@ -30,16 +30,9 @@ export default function Form() {
 
       if (response.status === 200) {
         
-        
         const data = await response.json();
         setMessage(data.message);
-        setName('');
-        setEmail('');
-        setPhone('');
-        router.push('/game')
-      } else if (response.status === 200) {
-        const data = await response.json();
-        setMessage(data.message);
+        router.push(process.env.NEXT_PUBLIC_URL + '/game/?email=' + email)
       } else {
         setMessage('Error saving person data.');
       }
@@ -50,18 +43,21 @@ export default function Form() {
   };
 
   return (
-    <div>
+    <div className='grid justify-center items-center h-screen'>
       {/* <h1>Save Person Data</h1> */}
-      <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
+      <section className="bg-white p-16 rounded flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0 ">
       <div className="md:w-1/3 max-w-sm">
-        <img
-          src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          alt="Sample image" />
+      <Image
+      src="/logo.png"
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
       </div>
       <div className="md:w-1/3 max-w-sm">
         
         <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-          <p className="mx-4 mb-0 text-center font-semibold text-slate-100">Smartway SRL</p>
+          <p className="mx-4 mb-0 text-center font-semibold text-slate-800">Ingresa a participar</p>
         </div>
         <form onSubmit={handleSubmit}>
 
@@ -73,7 +69,7 @@ export default function Form() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required/>
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4" type="phone" placeholder="Celular" value={phone} minLength="9" maxLength="20"
+        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4" type="phone" placeholder="Celular" value={phone} minLength="8" maxLength="20"
             onChange={(e) => setPhone(e.target.value)}
             required />
         <div className="text-center md:text-left">
@@ -86,6 +82,12 @@ export default function Form() {
 
     </section>
       {/* <p>{message}</p> */}
+      <Image
+      src="/smartway.png"
+      width={250}
+      height={250}
+      alt="Picture of the author" className='m-auto'
+    />
     </div>
   );
 }
