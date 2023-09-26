@@ -8,6 +8,15 @@ export async function POST(request) {
   const name = formData.get('name');
   const email = formData.get('email');
   const phone = formData.get('phone');
+  const empresa = formData.get('empresa');
+  const cantidad_empleados = formData.get('empleados');
+  const industria = formData.get('industria');
+  const conoce_napsis = formData.get('napsis');
+  const tiene_recibo_digital =  formData.get('sueldo');
+  const plataforma_empresa =  formData.get('digital');
+  const sistema_integrado =  formData.get('integrado');
+  const interes_legajo_digital =  formData.get('conocer');
+  const informacion_napsis =  formData.get('informacion');
 
   try {
     // Check if a User with the same email already exists
@@ -28,10 +37,19 @@ export async function POST(request) {
         name,
         email,
         phone,
+        empresa,
+        cantidad_empleados,
+        industria,
+        conoce_napsis,
+        tiene_recibo_digital,
+        plataforma_empresa,
+        sistema_integrado,
+        interes_legajo_digital,
+        informacion_napsis,
       },
     });
 
-    return NextResponse.json({ message: 'Ha ingresado correctamente', data: createdUser });
+    return NextResponse.json({ message: 'Cargando...', data: createdUser });
   } catch (error) {
     console.error('Error saving User data:', error);
     return NextResponse.json({ message: 'Ha ocurrido un error' }, { status: 500 });

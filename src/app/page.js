@@ -25,12 +25,20 @@ export default function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const phoneAsInt = parseInt(phone, 10);
 
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
-    formData.append('phone', phoneAsInt);
+    formData.append('phone', phone);
+    formData.append('empresa', empresa);
+    formData.append('empleados', empleados);
+    formData.append('industria', industria);
+    formData.append('napsis', napsis);
+    formData.append('sueldo', sueldo);
+    formData.append('digital', digital);
+    formData.append('integrado', integrado);
+    formData.append('conocer', conocer);
+    formData.append('informacion', informacion);
 
     try {
       const response = await fetch('/api/create', {
@@ -74,39 +82,39 @@ export default function Form() {
         <label class="block text-gray-700 text-sm font-bold mb-2" for="Empresa">
         Empresa
       </label>
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Empresa" value={empresa}
+        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Nombre de su empresa" value={empresa}
             onChange={(e) => setEmpresa(e.target.value)}
             required />
         <label class="block text-gray-700 text-sm font-bold mb-2" for="Nombre">
         Nombre y Apellido
       </label>
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Nombre" value={name}
+        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Nombre y apellido" value={name}
             onChange={(e) => setName(e.target.value)}
             required />
         <label class="block text-gray-700 text-sm font-bold mb-2" for="Email">
         Email
       </label>
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="email" placeholder="Email" 
+        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="email" placeholder="Su email" 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required/>
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="Celular">
                     Celular
       </label>
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="phone" placeholder="Celular" value={phone} minLength="8" maxLength="20"
+        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="phone" placeholder="N° de celular" value={phone} minLength="8" maxLength="20"
             onChange={(e) => setPhone(e.target.value)}
             required />
           <label class="block text-gray-700 text-sm font-bold mb-2" for="Celular">
           Cantidad de empleados
       </label>
-<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="empleados" 
+<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Cantidad de empleados" 
             value={empleados}
             onChange={(e) => setEmpleados(e.target.value)}
             required/>
           <label class="block text-gray-700 text-sm font-bold mb-2" for="industria">
           A que industria pertenece
       </label>
-<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="industria" 
+<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Su industria" 
             value={industria}
             onChange={(e) => setIndustria(e.target.value)}
             required/>
@@ -155,7 +163,7 @@ export default function Form() {
   <label class="block text-gray-700 text-sm font-bold mb-2" for="integrado">
   ¿Es un sistema integrado o son distintos?
 </label>
-<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="integrado" 
+<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Su respuesta" 
             value={integrado}
             onChange={(e) => setIntegrado(e.target.value)}
             required/>  
@@ -163,7 +171,7 @@ export default function Form() {
 <label class="block text-gray-700 text-sm font-bold mb-2" for="conocer">
 ¿Tienen interés de conocer el legajo digital?
 </label>
-<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="conocer" 
+<input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mb-4" type="text" placeholder="Su respuesta" 
             value={conocer}
             onChange={(e) => setConocer(e.target.value)}
             required/>  

@@ -16,4 +16,13 @@ model User {
   email   String   @unique
   phone   String
   puntos  Int?
+  empresa String
+  cantidad_empleados String
+  industria String
+  conoce_napsis String
+  tiene_recibo_digital String
+  plataforma_empresa String
+  sistema_integrado String
+  interes_legajo_digital String
+  informacion_napsis String
 }
