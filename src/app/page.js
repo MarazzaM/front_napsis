@@ -50,7 +50,7 @@ export default function Form() {
         
         const data = await response.json();
         setMessage(data.message);
-        router.push(process.env.NEXT_PUBLIC_URL + '/game/?email=' + email)
+        router.push(process.env.NEXT_PUBLIC_URL)
       } else {
         setMessage('Error saving person data.');
       }
