@@ -75,7 +75,8 @@ export default function Form() {
       <div className="md:w-1/3 max-w-sm">
         
         <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-          <p className="mx-4 mb-0 text-center font-semibold text-slate-800">Sorteo Napsis</p>
+          <p className="mx-4 mb-0 text-center font-semibold text-slate-800">Sorteo Napsis <span>&#127881;</span>
+</p>
         </div>
         <form onSubmit={handleSubmit}>
 
